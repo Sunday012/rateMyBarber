@@ -1,5 +1,25 @@
 /* Rate My Barber */
 
+.bg-black {
+    background-color: black;
+}
+
+.bg-green {
+    background: #38B82D;
+}
+
+.bg-red {
+    background: #D12A2A;
+}
+
+.bg-yellow {
+    background: #E1B828;
+}
+
+.bg-grey {
+    background: #606060;
+}
+
 /* -------------------------------- */
 /*              NAVBAR              */
 /* -------------------------------- */
@@ -38,16 +58,17 @@
     justify-content: center;
     align-items: center;
     background-color: black;
+    position: relative;
 }
 
-.hero-section .hero-heading {
+.hero-heading {
     font-family: Marko One;
     font-weight: 400;
     font-size: 68px;
     line-height: 60px;
 }
 
-.hero-section .search-bar {
+.search-bar {
     background-color: #F8EFEF;
     border-radius: 50px;
     font-family: Marko One;
@@ -56,13 +77,93 @@
     line-height: 28px;
 }
 
+.form-container {
+    position: relative;
+}
+
 .search-bar::placeholder {
     color: gray;
+}
+
+.search-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.floating-btn {
+    border: 0px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+}
+
+/* -------------------------------- */
+/*     LOCATION DISPLAY SECTION     */
+/* -------------------------------- */
+.cards {
+    display: flex;
+    align-items: center;
+    border-radius: 0px;
+    background: #D9D9D9;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.rating {
+    padding: 10px;
+    font-family: Crimson Text;
+    font-size: 26px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    margin-right: 20px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-family: Source Serif Pro;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.address {
+    font-family: Roboto Mono;
+    font-size: 13px;
+    color: #757575;
+}
+
+.speciality {
+    font-size: 13px;
+    font-family: Anonymous Pro;
+    font-weight: 400;
 }
 
 /* -------------------------------- */
 /*              FOOTER              */
 /* -------------------------------- */
+
+.footer {
+    padding-left: 35px;
+}
+
 .footer-text {
     font-family: Karla;
     font-weight: 400;
