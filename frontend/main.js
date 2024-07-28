@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:5000'; // Replace with  actual server URL when deployed
+const baseUrl = 'http://localhost:5000'; // Replace with actual server URL when deployed
 
 // Register User
 async function registerUser(userData) {
@@ -21,7 +21,7 @@ async function registerUser(userData) {
 async function loginUser(loginData) {
     try {
         const response = await fetch(`${baseUrl}/login`, {
-            method: 'GET',
+            method: 'GET', 
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -29,7 +29,7 @@ async function loginUser(loginData) {
         });
         const data = await response.json();
         console.log('Login:', data);
-        return data.jwtToken; // Return the JWT token for authenticated requests
+        return data.jwtToken; 
     } catch (error) {
         console.error('Error logging in:', error);
     }
@@ -142,4 +142,3 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         await addBarberProfile(barberData, token);
     }
 });
-
