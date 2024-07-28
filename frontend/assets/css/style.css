@@ -32,6 +32,10 @@
     color: white;
 }
 
+.pad-bottom-eight {
+    padding-bottom: 10rem !important;
+}
+
 /* -------------------------------- */
 /*              NAVBAR              */
 /* -------------------------------- */
