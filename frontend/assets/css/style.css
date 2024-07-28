@@ -51,6 +51,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
+    display: inline;
 }
 
 .text-caps {
@@ -64,11 +65,49 @@
     line-height: 28px;
 }
 
+.user-info {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    font: 'Marko One';
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.user-info i {
+    margin-left: 10px;
+}
+
+.user-info,
+.auth-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .user-info i,
+.navbar .auth-links a {
+    margin-left: 10px;
+}
+
+.nav-text {
+    font-family: 'Marko One';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.settings-icon {
+    text-decoration: none;
+    color: black;
+}
+
 /* -------------------------------- */
 /*           HERO SECTION           */
 /* -------------------------------- */
 .hero-section {
-    height: 100vh;
+    height: 42rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,12 +152,64 @@
 
 .floating-btn {
     border: 0px;
+    color: black;
     background-color: white;
     width: 50px;
     height: 50px;
     position: absolute;
     bottom: 3%;
     right: 3%;
+}
+
+.floating-card {
+    display: none;
+    position: absolute;
+    bottom: 4%;
+    right: 2%;
+    width: 25%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+}
+
+.floating-card a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Playfair Display';
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 50px;
+}
+
+.input-field {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-container .input-field {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.paper-plane-btn {
+    border: none;
+    background: none;
 }
 
 /* -------------------------------- */
@@ -270,7 +361,7 @@
 }
 
 .register-heading {
-    font-family: Merriweather;
+    font-family: 'Merriweather';
     font-size: 40px;
     font-weight: 400;
     line-height: 28px;
