@@ -20,6 +20,18 @@
     background: #606060;
 }
 
+.bg-light-grey {
+    background-color: #D9D9D9;
+}
+
+.r-35 {
+    border-radius: 35px;
+}
+
+.white-color {
+    color: white;
+}
+
 /* -------------------------------- */
 /*              NAVBAR              */
 /* -------------------------------- */
@@ -31,7 +43,7 @@
 }
 
 .nav-link {
-    font-family: Marko One;
+    font-family: 'Marko One';
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
@@ -108,6 +120,10 @@
 /* -------------------------------- */
 /*     LOCATION DISPLAY SECTION     */
 /* -------------------------------- */
+.card-link {
+    text-decoration: none;
+}
+
 .cards {
     display: flex;
     align-items: center;
@@ -122,7 +138,7 @@
 
 .rating {
     padding: 10px;
-    font-family: Crimson Text;
+    font-family: 'Crimson Text';
     font-size: 26px;
     font-weight: 700;
     display: flex;
@@ -139,21 +155,209 @@
 }
 
 .name {
-    font-family: Source Serif Pro;
+    font-family: 'Source Serif Pro';
     font-size: 18px;
     font-weight: 900;
 }
 
 .address {
-    font-family: Roboto Mono;
+    font-family: 'Roboto Mono';
     font-size: 13px;
     color: #757575;
 }
 
 .speciality {
     font-size: 13px;
-    font-family: Anonymous Pro;
+    font-family: 'Anonymous Pro';
     font-weight: 400;
+}
+
+/* -------------------------------- */
+/*      BARBER DETAIL SECTION       */
+/* -------------------------------- */
+.barber-detail-section {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.barber-detail-container {
+    background-color: #D9D9D9;
+    padding-top: 50px;
+    padding-bottom: 8rem;
+    position: relative;
+}
+
+.barber-detail-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.barber-name {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 28px;
+    text-decoration: underline;
+}
+
+.barber-shop {
+    font-family: Roboto Mono;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #757575;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.card-title {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.card-subtitle,
+.card-text,
+.card-rating {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.black-floating-btn {
+    background-color: black;
+    position: absolute;
+    bottom: 4%;
+    right: 2%;
+    border: 0px;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -------------------------------- */
+/*   REGISTRATION OPTIONS SECTION   */
+/* -------------------------------- */
+.registration-option {
+    padding-bottom: 15px;
+}
+
+.registeration-option-container {
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+
+.register-heading {
+    font-family: Merriweather;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 28px;
+    text-decoration: underline;
+    margin-bottom: 50px;
+}
+
+.registeration-option-btn {
+    border: 0px;
+    border-radius: 20px;
+    width: 70%;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    font-family: 'Playfair Display';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.hr-line {
+    border-top: 2px solid black;
+    width: 75%;
+}
+
+.already-account {
+    font-family: Karla;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    text-transform: uppercase;
+}
+
+.sign-in-btn {
+    text-decoration: none;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 28px;
+    color: black;
+}
+
+/* -------------------------------- */
+/*    REGISTRATION FORM SECTION     */
+/* -------------------------------- */
+.registration-form {
+    padding-bottom: 15px;
+}
+
+.registeration-form-container {
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+
+.registration-form-input {
+    width: 75%;
+    border-radius: 0px;
+}
+
+.registration-form-input::placeholder {
+    font-family: Marko One;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: left;
+}
+
+.submit-sign-in-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-family: Marko One;
+    font-size: 17x;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: left;
 }
 
 /* -------------------------------- */
