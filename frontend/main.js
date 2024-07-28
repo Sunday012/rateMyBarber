@@ -21,7 +21,7 @@ async function registerUser(userData) {
 async function loginUser(loginData) {
     try {
         const response = await fetch(`${baseUrl}/login`, {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             },
