@@ -33,6 +33,10 @@ app.use((req, res, next) => {
 });
 
 
+app.get('/', (req, res) => {
+    res.send('Hello, Team!');
+});
+
 //register user
 app.post("/register", async (req, res) => {
     const {name, email, password, role, account_name} = req.body;
@@ -139,6 +143,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 })
-
 
 // I made it very detailed because of cozmo since she isn't familair with node
