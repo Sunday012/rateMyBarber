@@ -166,12 +166,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const userData = { name: c_name, email: c_email, password: c_password, role: 'customer', account_name: c_account_name };
             console.log(userData);
             try {
+                const signLink = document.getElementById("signLink");
                 const user = await registerUser(userData);
                 console.log(user)
                 if (user && user.message === "user created successfully") {
-                    setTimeout(() => {
-                        window.location.href = "/frontend/sign-in.html";
-                    }, 2000);
+                    // setTimeout(() => {
+                    //     window.location.href = "/frontend/sign-in.html";
+                    // }, 2000);
+                    signLink.style.display = "block";
                 } else {
                     console.error('Registration failed:', user?.error);
                 }
