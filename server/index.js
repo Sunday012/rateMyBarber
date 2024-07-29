@@ -32,6 +32,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.options('*', (req, res) => {
+    res.sendStatus(200);
+});
+
 
 app.get('/', (req, res) => {
     res.send('Hello, Team!');

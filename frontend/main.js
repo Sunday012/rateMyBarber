@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:5000'; // Replace with actual server URL when deployed
+const baseUrl = 'https://rate-my-barber.vercel.app/'; // Replace with actual server URL when deployed
 
 // Register User
 async function registerUser(userData) {
@@ -21,7 +21,7 @@ async function registerUser(userData) {
 async function loginUser(loginData) {
     try {
         const response = await fetch(`${baseUrl}/login`, {
-            method: 'GET', 
+            method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -105,40 +105,81 @@ async function search(query) {
     }
 }
 
-// Example usage with form submissions
-document.getElementById('registerForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const role = document.getElementById('role').value;
-    const account_name = document.getElementById('account_name').value;
+document.addEventListener('DOMContentLoaded', function() {
+    const barberrole = document.getElementById('barber');
+    const customerrole = document.getElementById('customer');
+    let role = "";
 
-    const userData = { name, email, password, role, account_name };
-    await registerUser(userData);
-});
-
-// Add event listeners for other forms or actions as needed
-// For example, for login:
-document.getElementById('loginForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const email = document.getElementById('emailLogin').value;
-    const password = document.getElementById('passwordLogin').value;
-
-    const loginData = { email, password };
-    const token = await loginUser(loginData);
-
-    // Use the token for authenticated requests
-    if (token) {
-        // Example: Add a barber profile
-        const barberData = {
-            name: 'Barber Name',
-            location: 'Location',
-            barber_shop_name: 'Shop Name',
-            expertise: 'Expertise',
-            phone_number: 'Phone Number',
-            account_name: 'Account Name'
+    if (barberrole) {
+        barberrole.onclick = function(e) {
+            e.preventDefault();
+            role = "barber";
+            window.location.href = "register-barber.html";
         };
-        await addBarberProfile(barberData, token);
+    }
+
+    if (customerrole) {
+        customerrole.onclick = function(e) {
+            e.preventDefault();
+            role = "customer";
+            window.location.href = "register-customer.html";
+        };
+    }
+
+    const barberRegisterForm = document.getElementById('barber_register_form');
+    if (barberRegisterForm) {
+        barberRegisterForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const b_name = document.getElementById('barber_name').value.trim();
+            const b_email = document.getElementById('barber_email').value.trim();
+            const b_password = document.getElementById('barber_password').value.trim();
+            const b_account_name = document.getElementById('barber_account_name').value.trim();
+
+            const userData = { name: b_name, email: b_email, password: b_password, role: 'barber', account_name: b_account_name };
+            console.log(userData);
+            await registerUser(userData);
+        });
+    }
+
+    const customerRegisterForm = document.getElementById('customer_register_form');
+    if (customerRegisterForm) {
+        customerRegisterForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const c_name = document.getElementById('customer_name').value.trim();
+            const c_email = document.getElementById('customer_email').value.trim();
+            const c_password = document.getElementById('customer_password').value.trim();
+            const c_account_name = document.getElementById('customer_account_name').value.trim();
+
+            const userData = { name: c_name, email: c_email, password: c_password, role: 'customer', account_name: c_account_name };
+            console.log(userData);
+            await registerUser(userData);
+        });
+    }
+
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('user_email').value.trim();
+            const password = document.getElementById('user_password').value.trim();
+
+            const loginData = { email, password };
+            const token = await loginUser(loginData);
+            console.log(token);
+
+            // Use the token for authenticated requests
+            // if (token) {
+            //     // Example: Add a barber profile
+            //     // const barberData = {
+            //     //     name: 'Barber Name',
+            //     //     location: 'Location',
+            //     //     barber_shop_name: 'Shop Name',
+            //     //     expertise: 'Expertise',
+            //     //     phone_number: 'Phone Number',
+            //     //     account_name: 'Account Name'
+            //     // };
+            //     // await addBarberProfile(barberData, token);
+            // }
+        });
     }
 });

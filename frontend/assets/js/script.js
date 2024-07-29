@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
     } else {
         authLinks.innerHTML = `
-            <a class="nav-link me-3 mt-2" href="login.html">Sign In</a>
+            <a class="nav-link me-3 mt-2" href="sign-in.html">Sign In</a>
             <a class="btn btn-dark register-btn text-caps" href="register.html">Register</a>
         `;
         card.innerHTML = '<a href="register.html">Sign In or Register to write a review</a>';
