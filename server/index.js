@@ -124,7 +124,7 @@ app.get('/barbers/:id/reviews', async (req, res) => {
     }
 });
 
-app.get('/user', async (req, res) => {
+app.get('/user', authenticateToken, async (req, res) => {
     try {
         if (!req.user.id) {
             return res.status(400).json({ error: "User ID is required" });
