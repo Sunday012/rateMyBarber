@@ -11,6 +11,7 @@ async function registerUser(userData) {
             body: JSON.stringify(userData)
         });
         const data = await response.json();
+        return data;
         console.log('User registered:', data);
     } catch (error) {
         console.error('Error registering user:', error);
@@ -188,12 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.localStorage.setItem('token', token);
             console.log(token);
             if (token) {
-                const link = document.createElement('a');
-                link.href = "/frontend/";
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link); 
+                window.location.href = "/frontend/"
             }
 
             // Use the token for authenticated requests
