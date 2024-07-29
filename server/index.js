@@ -11,7 +11,6 @@ const loginRoute = require('./api/login');
 
 app.use(express.json());
 
-const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS) || 10;
 
 //middleware
 const authenticateToken = (req, res, next) => {
