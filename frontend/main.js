@@ -142,7 +142,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const user = await registerUser(userData);
                 console.log(user)
                 if (user && user.message === "user created successfully") {
-                    window.location.href = "/frontend/sign-in.html";
+                    setTimeout(() => {
+                        window.location.href = "/frontend/sign-in.html";
+                    }, 200);
                 } else {
                     console.error('Registration failed:', user?.error);
                 }
@@ -167,7 +169,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const user = await registerUser(userData);
                 console.log(user)
                 if (user && user.message === "user created successfully") {
-                    window.location.href = "/frontend/sign-in.html";
+                    setTimeout(() => {
+                        window.location.href = "/frontend/sign-in.html";
+                    }, 200);
                 } else {
                     console.error('Registration failed:', user?.error);
                 }

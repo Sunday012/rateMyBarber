@@ -14,7 +14,6 @@
     ],
     "rewrites": [
      { "source": "/register", "destination": "/api/register" },
-     { "source": "/login", "destination": "/api/login" },
-     { "source": "/(.*)", "destination": "/../frontend/$1" }
+     { "source": "/login", "destination": "/api/login" }
     ]
 }
