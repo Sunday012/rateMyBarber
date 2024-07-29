@@ -138,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const userData = { name: b_name, email: b_email, password: b_password, role: 'barber', account_name: b_account_name };
             console.log(userData);
             await registerUser(userData);
+            location.assign('/frontend/sign-in.html');
         });
     }
 
@@ -153,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const userData = { name: c_name, email: c_email, password: c_password, role: 'customer', account_name: c_account_name };
             console.log(userData);
             await registerUser(userData);
+            location.assign('/frontend/sign-in.html');
         });
     }
 
@@ -167,8 +169,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const token = await loginUser(loginData);
             window.localStorage.setItem('token', token);
             console.log(token);
-            if(token){
-                window.location.href = "/frontend/";
+            if (token) {
+                location.assign('/frontend/');
             }
 
             // Use the token for authenticated requests
