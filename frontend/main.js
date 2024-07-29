@@ -1,4 +1,4 @@
-const baseUrl = 'https://rate-my-barber.vercel.app/'; // Replace with actual server URL when deployed
+const baseUrl = 'https://rate-my-barber.vercel.app'; // Replace with actual server URL when deployed
 
 // Register User
 async function registerUser(userData) {
