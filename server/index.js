@@ -4,6 +4,7 @@ const app = express();
 const pool = require('./db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 
 
 app.use(express.json());
@@ -26,24 +27,11 @@ const authenticateToken = (req, res, next) => {
 };
 
 
-const allowedOrigins = [
-    'http://127.0.0.1:5500',
-    'https://rate-my-barber.vercel.app'
-];
-
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: 'GET, POST, PUT, DELETE, OPTIONS',
-    allowedHeaders: 'Content-Type'
-};
-
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: ['http://127.0.0.1:5500', 'https://rate-my-barbers.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 
 app.get('/', (req, res) => {
