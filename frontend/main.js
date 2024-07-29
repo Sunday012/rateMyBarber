@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (user && user.message === "user created successfully") {
                     setTimeout(() => {
                         window.location.href = "/frontend/sign-in.html";
-                    }, 200);
+                    }, 2000);
                 } else {
                     console.error('Registration failed:', user?.error);
                 }
