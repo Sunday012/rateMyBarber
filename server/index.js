@@ -124,6 +124,22 @@ app.get('/barbers/:id/reviews', async (req, res) => {
     }
 });
 
+app.get('/user', async (req, res) => {
+    try {
+        if (!req.user.id) {
+            return res.status(400).json({ error: "User ID is required" });
+        }
+        const user = await pool.query("SELECT * FROM users WHERE id = $1", [req.user.id]);
+        if (user.rows.length === 0) {
+            return res.status(404).json({ error: "User not found" });
+        }
+        const result = user.rows[0];
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({error: "Failed to get user"})
+    }
+})
+
 // search for a paricular barber or review by name or city
 app.get('/search', async (req, res) => {
     const {q} = req.query;

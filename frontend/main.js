@@ -165,7 +165,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const loginData = { email, password };
             const token = await loginUser(loginData);
+            window.localStorage.setItem('token', token);
             console.log(token);
+            if(token){
+                window.location.href = "/frontend/";
+            }
 
             // Use the token for authenticated requests
             // if (token) {

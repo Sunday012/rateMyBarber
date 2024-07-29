@@ -1,12 +1,30 @@
-var isSignedIn = true; // Change this to false to simulate a non-signed-in user
 var userName = "John Doe"; // Example user name
+const token = window.localStorage.getItem("token");
 
-document.addEventListener('DOMContentLoaded', function () {
+// async function getUser() {
+//     try {
+//         const response = await fetch(`${baseUrl}/user`, {
+//             method: 'GET',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             }
+//         });
+//         const data = await response.json();
+//         console.log('User:', data);
+//         return data;
+//     } catch (error) {
+//         console.error('Error fetching user', error);
+//     }
+// }
+
+document.addEventListener('DOMContentLoaded', async function () {
     var userInfo = document.getElementById('userInfo');
     var card = document.getElementById('floatingCard');
-
-    if (isSignedIn) {
-        userInfo.innerHTML = `<p class="text-black nav-text">Welcome ${userName} <a href="register.html" class="settings-icon"> <i class="fas fa-cog"></i></a></p>`;
+    var authLinks = document.getElementById('authLinks');
+    const userdata = await getUser();
+    console.log(userdata)
+    if (token) {
+        userInfo.innerHTML = `<div><p class="text-black nav-text">Welcome ${userName} <a href="/frontend/" class="settings-icon"> <i class="fas fa-cog"></i></a></p> <button id="logoutBtn" class="logout-btn">Logout</button></div>`;
         card.innerHTML = `
             <h2 class="register-heading text-black">Review</h2>
             <div class="input-container">
@@ -27,6 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
             
         `;
+
+        document.getElementById('logoutBtn').addEventListener('click', function () {
+            window.localStorage.removeItem('token');
+            window.location.href = "sign-in.html";
+        });
     } else {
         authLinks.innerHTML = `
             <a class="nav-link me-3 mt-2" href="sign-in.html">Sign In</a>
