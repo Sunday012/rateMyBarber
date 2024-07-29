@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const userdata = await getUser();
     console.log(userdata)
     if (token) {
-        userInfo.innerHTML = `<div><p class="text-black nav-text">Welcome ${userName} <a href="/frontend/" class="settings-icon"> <i class="fas fa-cog"></i></a></p> <button id="logoutBtn" class="logout-btn">Logout</button></div>`;
+        userInfo.innerHTML = `<div><p class="text-black nav-text">Welcome ${userdata.name} <a href="/frontend/" class="settings-icon"> <i class="fas fa-cog"></i></a></p> <button id="logoutBtn" class="logout-btn">Logout</button></div>`;
         card.innerHTML = `
             <h2 class="register-heading text-black">Review</h2>
             <div class="input-container">
