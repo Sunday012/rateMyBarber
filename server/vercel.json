@@ -11,5 +11,9 @@
         "src": "/(.*)",
         "dest": "index.js"
       }
+    ],
+    "rewrites": [
+     { "source": "/register", "destination": "/api/register" },
+     { "source": "/login", "destination": "/api/login" }
     ]
 }

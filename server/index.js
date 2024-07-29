@@ -5,6 +5,8 @@ const pool = require('./db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
+const registerRoute = require('./api/register');
+const loginRoute = require('./api/login');
 
 
 app.use(express.json());
@@ -38,45 +40,9 @@ app.get('/', (req, res) => {
     res.send('Hello, Team!');
 });
 
-//register user
-app.post("/register", async (req, res) => {
-    const {name, email, password, role, account_name} = req.body;
-    const userCheck = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
-    if (userCheck.rows.length > 0) {
-        return res.status(400).json({ error: 'User already exists' });
-    }
-    if (!name || !password || !role) {
-        return res.status(400).json({ error: 'Please provide username, password, and role' });
-    }
-    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
-    console.log(hashedPassword);
-    try {
-        await pool.query("INSERT INTO users (name, email, password, role, account_name) VALUES($1, $2, $3, $4, $5)", [name, email, hashedPassword, role, account_name]);
-        return res.status(200).json({message:"user created successfully"})
-    } catch (error) {
-        res.status(400).json({ error: 'Internal Server Error' });
-    }
-})
+app.use('/api', registerRoute);
+app.use('/api', loginRoute);
 
-
-//login a user
-app.post('/login',async (req, res) => {
-    const {password, email} = req.body;
-    try {
-        const result = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
-        const user = result.rows[0];
-        if(!user) return res.status(404).json({message: "Access denied"});
-
-        const decryptedPassword = await bcrypt.compare(password, user.password)
-        if(!decryptedPassword) return res.status(404).json({message: "Invalid password"});
-
-        const jwtToken = jwt.sign({id: user.id, role: user.role}, process.env.JWT_SECRET);
-        res.header('Authorization', jwtToken).json({jwtToken});
-        res.status(200).json({message: "Logged in successfully"})
-    } catch (error) {
-        res.status(400).json({message: "unable to login"})
-    }
-})
 
 // add a barber profile
 app.post('/barbers', authenticateToken, async (req, res) => {
