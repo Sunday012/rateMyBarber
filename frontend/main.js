@@ -138,7 +138,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const userData = { name: b_name, email: b_email, password: b_password, role: 'barber', account_name: b_account_name };
             console.log(userData);
             await registerUser(userData);
-            location.assign('/frontend/sign-in.html');
+            const link = document.createElement('a');
+            link.href = "/frontend/sign-in.html";
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link); 
         });
     }
 
@@ -154,7 +159,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const userData = { name: c_name, email: c_email, password: c_password, role: 'customer', account_name: c_account_name };
             console.log(userData);
             await registerUser(userData);
-            location.assign('/frontend/sign-in.html');
+            const link = document.createElement('a');
+            link.href = "/frontend/sign-in.html";
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link); 
         });
     }
 
@@ -170,7 +180,12 @@ document.addEventListener('DOMContentLoaded', function() {
             window.localStorage.setItem('token', token);
             console.log(token);
             if (token) {
-                location.assign('/frontend/');
+                const link = document.createElement('a');
+                link.href = "/frontend/";
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link); 
             }
 
             // Use the token for authenticated requests
