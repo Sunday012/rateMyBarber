@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.localStorage.setItem('token', token);
             console.log(token);
             if (token) {
-                window.location.href = "/frontend/"
+                window.location.href = "index.html";
             }
 
             // Use the token for authenticated requests
