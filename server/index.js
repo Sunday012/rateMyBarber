@@ -136,6 +136,7 @@ app.get('/user', async (req, res) => {
         const result = user.rows[0];
         res.status(200).json(result);
     } catch (error) {
+        console.error("Error fetching user:", error);
         res.status(500).json({error: "Failed to get user"})
     }
 })

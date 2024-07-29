@@ -1,21 +1,22 @@
 var userName = "John Doe"; // Example user name
 const token = window.localStorage.getItem("token");
 
-// async function getUser() {
-//     try {
-//         const response = await fetch(`${baseUrl}/user`, {
-//             method: 'GET',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             }
-//         });
-//         const data = await response.json();
-//         console.log('User:', data);
-//         return data;
-//     } catch (error) {
-//         console.error('Error fetching user', error);
-//     }
-// }
+async function getUser() {
+    try {
+        const response = await fetch(`${baseUrl}/user`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        const data = await response.json();
+        console.log('User:', data);
+        return data;
+    } catch (error) {
+        console.error('Error fetching user', error);
+    }
+}
 
 document.addEventListener('DOMContentLoaded', async function () {
     var userInfo = document.getElementById('userInfo');
