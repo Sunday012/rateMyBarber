@@ -51,9 +51,8 @@ app.post("/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
     console.log(hashedPassword);
     try {
-        const result = await pool.query("INSERT INTO users (name, email, password, role, account_name) VALUES($1, $2, $3, $4, $5)", [name, email, hashedPassword, role, account_name]);
-        const user = result.rows[0];
-        res.status(200).json({message:"user created successfully"})
+        await pool.query("INSERT INTO users (name, email, password, role, account_name) VALUES($1, $2, $3, $4, $5)", [name, email, hashedPassword, role, account_name]);
+        return res.status(200).json({message:"user created successfully"})
     } catch (error) {
         res.status(400).json({ error: 'Internal Server Error' });
     }
